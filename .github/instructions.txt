@@ -1,0 +1,84 @@
+# Proje Adı: DailyLingua
+# Tür: Native Android Uygulaması
+# Yazılım Dili: Kotlin DSL
+# Minimum Android Sürümü: 8.1 (API 27)
+# Geliştirme Ortamı: VSCode + GitHub Copilot
+# Açıklama: Kullanıcıya her gün yeni bir kelime gösteren ve quizlerle pekiştiren çok dilli bir dil öğrenme uygulaması.
+
+===========================
+📁 PROJE YAPISI
+===========================
+
+com.example.dailylingua
+├── data/
+│   ├── model/Word.kt
+│   └── repository/WordRepository.kt
+├── ui/
+│   ├── language/LanguageSelectActivity.kt
+│   ├── daily/DailyWordActivity.kt
+│   ├── quiz/QuizActivity.kt
+│   └── progress/ProgressActivity.kt
+└── utils/JsonUtils.kt
+
+===========================
+🧠 UYGULAMA İŞLEYİŞİ
+===========================
+
+1️⃣ Dil Seçimi (LanguageSelectActivity)
+- Kullanıcı ilk açılışta 3 butondan birini seçer: İngilizce 🇬🇧, Almanca 🇩🇪, Rusça 🇷🇺.
+- Seçilen dil SharedPreferences ile "selectedLanguage" olarak kaydedilir.
+- Ana ekrana geçmeden önce uygun JSON dosyası belirlenir.
+
+2️⃣ Günün Kelimesi (DailyWordActivity)
+- JSON dosyası assets/ klasöründen okunur.
+- Kullanıcının seçtiği dile göre “words_en.json”, “words_de.json” veya “words_ru.json” yüklenir.
+- Günün kelimesi (LocalDate.now().dayOfYear % kelimeListesi.size) formülüyle belirlenir.
+- Kelime, anlam ve örnek cümle ekranda gösterilir.
+- “Quiz’e Başla” butonu QuizActivity sayfasına yönlendirir.
+
+3️⃣ Quiz (QuizActivity)
+- JSON’dan rastgele 5 kelime alınır.
+- Her biri 4 şıklı çoktan seçmeli sorulara dönüştürülür.
+- Kullanıcı doğru cevabı seçtiğinde buton yeşil, yanlışta kırmızı olur.
+- Quiz sonunda skor ekranda gösterilir.
+
+4️⃣ İlerleme (ProgressActivity)
+- Toplam quiz sayısı ve doğru cevap sayısı SharedPreferences içinde tutulur.
+- Başarı oranı progress bar veya yüzde olarak gösterilir.
+
+===========================
+🎨 TASARIM ve ARAYÜZ
+===========================
+
+- Dil seçimi ekranı: 3 büyük buton (EN, DE, RU)
+- Günün kelimesi ekranı: CardView içinde kelime + anlam + örnek cümle
+- Quiz ekranı: 4 cevap butonu + “Next” butonu
+- Progress ekranı: ProgressBar + başarı yüzdesi metni
+- Renk Paleti:
+  Ana renk → #4CAF50
+  İkincil renk → #F9A825
+
+===========================
+⚙️ TEKNİK DETAYLAR
+===========================
+
+- JSON dosyaları: assets/words_en.json, assets/words_de.json, assets/words_ru.json
+- Her JSON şu formattadır:
+  {
+    "words": [
+      {
+        "id": 1,
+        "word": "apple",
+        "translation": "elma",
+        "example": "I eat an apple every morning.",
+        "options": ["apple", "pear", "banana", "grape"],
+        "correct": "apple"
+      }
+    ]
+  }
+
+- Veriler Gson ile parse edilir.
+- SharedPreferences kullanıcı verilerini saklar.
+- Material Design prensipleri kullanılacak.
+- Native yapıda, ek kütüphaneler minimal tutulur.
+- İleri seviye ek: WorkManager ile günlük bildirim (isteğe bağlı).

@@ -1,0 +1,32 @@
+# Copilot Prompts for DailyLingua
+
+1️⃣ Kullanıcı arayüzünü oluştur:
+- 3 butonlu sade bir dil seçimi ekranı (EN, DE, RU).
+- Seçim yapıldığında SharedPreferences’a kaydet ve ana ekrana yönlendir.
+
+2️⃣ Günün kelimesi ekranını hazırla:
+- Seçilen dilin JSON dosyasını oku.
+- Günün kelimesini hesapla ve kelime, anlam, örnek cümleyi CardView içinde göster.
+- “Quiz’e Başla” butonu ekle ve tıklanınca QuizActivity’ye geç.
+
+3️⃣ Quiz ekranı için kod oluştur:
+- JSON’daki kelimelerden rastgele 5 tanesini al.
+- Her kelime için 4 seçenekli soru oluştur.
+- Kullanıcı seçeneğe bastığında doğruysa yeşil, yanlışsa kırmızı renklendir.
+- “Next” butonu ile bir sonraki soruya geç.
+- Tüm sorular bitince skor göster.
+
+4️⃣ ProgressActivity oluştur:
+- SharedPreferences üzerinden doğru ve toplam quiz sayısını çek.
+- Başarı oranını hesapla (doğru/toplam * 100).
+- ProgressBar ve metin ile başarı oranını ekrana yaz.
+
+5️⃣ JsonUtils.kt için yardımcı fonksiyon:
+- assets/ dizinindeki doğru dosyayı oku.
+- Gson kullanarak List<Word> döndür.
+- Hatalı dosya durumunda varsayılan olarak “words_en.json” kullan.
+
+6️⃣ Ek özellik (isteğe bağlı):
+- WorkManager kullanarak her gün “Günün Kelimesi” bildirimi oluştur.
+- Ayarlar menüsünde dil değiştirme seçeneği ekle.
+- SplashScreen ile uygulama açılışında logo göster.

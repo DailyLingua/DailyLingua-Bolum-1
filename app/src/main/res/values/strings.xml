@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DailyLingua</string>
+    <string name="no_words">No words available</string>
+    <string name="quiz_finished">Quiz Finished</string>
+    <string name="your_score">Your score: %1$d / %2$d</string>
+    <string name="progress_percent">%1$d%% başarı</string>
+</resources>

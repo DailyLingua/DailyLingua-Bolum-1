@@ -1,0 +1,58 @@
+## Android Studio / Gradle
+.gradle/
+/build/
+/captures/
+/local.properties
+/.idea/
+*.iml
+*.hprof
+
+## Java / Kotlin
+*.class
+*.jar
+*.war
+*.ear
+*.apk
+*.ap_ 
+
+## Kotlin native / cinterop
+.cxx/
+.externalNativeBuild/
+
+## Gradle wrapper
+gradle-wrapper.jar
+
+## Build output
+**/build/
+
+## Android specific
+/app/*.keystore
+*.jks
+signingConfigs.properties
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## IDEs
+.idea/
+.vscode/
+.history/
+
+## Logs
+*.log
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
