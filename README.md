@@ -18,4 +18,3 @@ Hazırlık ve GitHub'a gönderme adımları:
    git branch -M main
    git push -u origin main
 
-Eğer devam etmemi istersen, yerel git kurulumu, ilk commit, ve GitHub repo oluşturma/push işlemlerini adım adım yapabilirim.
